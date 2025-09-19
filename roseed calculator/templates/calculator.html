@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 30px; }
+        .calculator {
+            background: white; padding: 20px; border-radius: 10px;
+            width: 300px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, select, button {
+            margin: 5px 0; padding: 10px; width: 100%;
+            border-radius: 5px; border: 1px solid #ccc;
+        }
+        button { background: #007BFF; color: white; border: none; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .result { margin-top: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Flask Calculator</h2>
+        <form method="POST">
+            <input type="number" name="num1" placeholder="Enter first number" required>
+            <input type="number" name="num2" placeholder="Enter second number" required>
+            <select name="operand" required>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <button type="submit">Calculate</button>
+        </form>
+        {% if result is not none %}
+            <div class="result">Result: {{ result }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
